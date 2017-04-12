@@ -68,7 +68,7 @@ def user_count_tweet(attr, timestamp):
             Count.timestamp == timestamp, Idol.attribute == attr).order_by(
             Count.user_count.desc()).limit(10)
 
-    tweet = '【' + timestamp + '】総投票ユーザ数：' + attr + '\n'
+    tweet = '【' + timestamp + '】総投票ツイート数（ユーザ重複を除く）：' + attr + '\n'
 
     counter = 1
 
@@ -79,7 +79,7 @@ def user_count_tweet(attr, timestamp):
         if counter == 5 or counter == 10:
             tweet += '#シンデレラガール総選挙'
             api.update_status(status=tweet)
-            tweet = '【' + timestamp + '】総投票ユーザ数：' + attr + '\n'
+            tweet = '【' + timestamp + '】総投票ツイート数（ユーザ重複を除く）：' + attr + '\n'
 
         counter += 1
 
